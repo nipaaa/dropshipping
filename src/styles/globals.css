@@ -61,6 +61,21 @@ textarea::placeholder {
     border-bottom: 0;
 }
 
+.css-121gg11-MuiGrid-root,
+.css-isu9w9-MuiGrid-root {
+    margin-top: unset;
+    width: unset;
+    margin-left: unset;
+}
+
+.css-isu9w9-MuiGrid-root>.MuiGrid-item {
+    padding-left: unset;
+}
+
+.css-isu9w9-MuiGrid-root>.MuiGrid-item {
+    padding-top: unset;
+}
+
 @media screen and (max-width:991px) {
     .form_text {
         font-size: 25px;
