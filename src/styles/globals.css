@@ -23,7 +23,6 @@ textarea:focus-visible {
 }
 
 textarea {
-    /* min-height: 284px; */
     margin-bottom: 145px;
 }
 
@@ -79,5 +78,9 @@ textarea::placeholder {
 @media screen and (max-width:991px) {
     .form_text {
         font-size: 25px;
+    }
+
+    textarea {
+        margin-bottom: 25px;
     }
 }

@@ -7,8 +7,8 @@ const Banner = () => {
     backgroundImage: `url(${bg.src})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    paddingTop: "195px",
-    paddingBottom: "261px",
+    paddingTop: { xs: "100px", lg: "195px" },
+    paddingBottom: { xs: "150px", lg: "261px" },
   };
 
   const titleStyle = {

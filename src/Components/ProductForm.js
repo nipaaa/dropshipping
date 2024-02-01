@@ -47,7 +47,7 @@ const ProductForm = () => {
         </Box>
         <form>
           <Grid
-            sx={{ paddingBottom: "225px" }}
+            sx={{ paddingBottom: { xs: "60px", lg: "225px" } }}
             container
             spacing={12}
             alignItems="center"
@@ -58,7 +58,6 @@ const ProductForm = () => {
               </Typography>
 
               <TextareaAutosize
-                fullWidth
                 aria-label="textarea"
                 placeholder="Ex .. How many products, etc."
                 minRows={9}
