@@ -29,7 +29,7 @@ const Banner = () => {
   const headingStyle = {
     color: " var(--Main2, #FFFFD7)",
     textShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
-    fontSize: "60px",
+    fontSize: { xs: "30px", md: "40px", lg: "60px" },
     fontStyle: "normal",
     fontWeight: "800",
     lineHeight: "70px",
@@ -48,16 +48,16 @@ const Banner = () => {
     filter: "drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25))",
   };
   return (
-    <Box style={bannerStyle}>
+    <Box sx={bannerStyle}>
       <Container maxWidth="lg">
         <Box sx={{ maxWidth: "882px" }}>
-          <Typography style={titleStyle}>Dropshipping?</Typography>
-          <Typography style={headingStyle}>
+          <Typography sx={titleStyle}>Dropshipping?</Typography>
+          <Typography sx={headingStyle}>
             Get Support on your Journey with Personalized, Sourced Products
           </Typography>
 
-          <Box style={borderStyle}></Box>
-          <Box style={shortBorder}></Box>
+          <Box sx={borderStyle}></Box>
+          <Box sx={shortBorder}></Box>
         </Box>
       </Container>
     </Box>

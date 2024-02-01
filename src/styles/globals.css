@@ -60,3 +60,9 @@ textarea::placeholder {
 .css-ga3afp-MuiInputBase-root-MuiInput-root::before {
     border-bottom: 0;
 }
+
+@media screen and (max-width:991px) {
+    .form_text {
+        font-size: 25px;
+    }
+}

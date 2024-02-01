@@ -13,7 +13,7 @@ const Footer = () => {
     fontSize: "30px",
     fontStyle: "normal",
     fontWeight: "700",
-    lineHeight: "13.043px",
+    lineHeight: { xs: "0", lg: "13.043px" },
     letterSpacing: "-0.15px",
     marginBottom: "24px",
   };
@@ -34,6 +34,7 @@ const Footer = () => {
         <Box
           sx={{
             display: "flex",
+            flexWrap: "wrap",
             alignItems: "center",
             justifyContent: "center",
             gap: "24px",

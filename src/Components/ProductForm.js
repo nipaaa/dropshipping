@@ -25,7 +25,7 @@ const ProductForm = () => {
   const titleStyle = {
     color: "#6B7A8F",
     textShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
-    fontSize: "70px",
+    fontSize: { xs: "30px", md: "40px", lg: "70px" },
     fontStyle: "normal",
     fontWeight: "800",
     lineHeight: "70px",
@@ -34,10 +34,10 @@ const ProductForm = () => {
   };
 
   return (
-    <Box style={formStyle}>
+    <Box sx={formStyle}>
       <Container>
         <Box sx={{ textAlign: "center" }}>
-          <Typography style={titleStyle}>Product Form</Typography>
+          <Typography sx={titleStyle}>Product Form</Typography>
           <Typography sx={{ marginBottom: "128px" }} className="form_text">
             Fill out the form below and submit. We will work on <br /> your
             request and email your results.
@@ -162,7 +162,9 @@ const ProductForm = () => {
                 Upload a picture or provide a link <br /> to the product(s) you
                 would like to <br /> source:
               </Typography>
-              <input style={{ display: "none" }} type="file" ref={fileRef} />
+              <Box sx={{ display: "none" }}>
+                <input type="file" ref={fileRef} />
+              </Box>
               <Box
                 onClick={() => fileRef.current.click()}
                 sx={{
@@ -240,7 +242,7 @@ const ProductForm = () => {
                 fontWeight: "800",
                 lineHeight: "20px",
                 padding: "16px",
-                maxWidth: "340px",
+                maxWidth: {xs:"240px", lg:"340px"},
                 width: "100%",
               }}
               variant="contained"
