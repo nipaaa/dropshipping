@@ -57,7 +57,7 @@ textarea::placeholder {
 .css-bz5ng3-MuiInputBase-root-MuiInput-root::before,
 .css-ga3afp-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
 .css-ga3afp-MuiInputBase-root-MuiInput-root::before {
-    border-bottom: 0;
+    border-bottom: 0 !important;
 }
 
 .css-121gg11-MuiGrid-root,
