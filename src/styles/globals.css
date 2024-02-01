@@ -24,6 +24,7 @@ textarea:focus-visible {
 
 textarea {
     margin-bottom: 145px;
+    padding: 17px 25px;
 }
 
 input {
@@ -51,6 +52,10 @@ textarea::placeholder {
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
+}
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+    padding: 0 !important;
 }
 
 .css-bz5ng3-MuiInputBase-root-MuiInput-root::before,

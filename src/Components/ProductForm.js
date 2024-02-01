@@ -104,12 +104,13 @@ const ProductForm = () => {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: "10px",
+                      padding: "24px 25px",
                     }}
                   >
                     <Typography
                       sx={{
                         color: "rgba(255, 255, 246, 0.50)",
-                        padding: "17px 25px",
+
                         fontSize: "25px",
                         fontStyle: "normal",
                         fontWeight: "500",
