@@ -66,14 +66,12 @@ const ProductForm = () => {
               />
               <Input
                 sx={{ marginBottom: "25px" }}
-                className="input"
                 type="text"
                 name="name"
                 placeholder="Full Name"
               />
               <Input
                 sx={{ marginBottom: "25px" }}
-                className="input"
                 name="email"
                 placeholder="Email "
               />
@@ -82,15 +80,10 @@ const ProductForm = () => {
                 <Box>
                   <Input
                     sx={{ marginBottom: "18px" }}
-                    className="input"
                     name="other"
                     placeholder="Other "
                   />
-                  <Input
-                    className="input"
-                    name="otherText"
-                    placeholder="Type here.. "
-                  />
+                  <Input name="otherText" placeholder="Type here.. " />
                 </Box>
               ) : (
                 <Box sx={{ position: "relative" }}>
