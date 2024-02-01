@@ -49,7 +49,7 @@ const Banner = () => {
   };
   return (
     <Box sx={bannerStyle}>
-      <Container maxWidth="lg">
+      <Container sx={{ maxWidth: "1478px" }}>
         <Box sx={{ maxWidth: "882px" }}>
           <Typography sx={titleStyle}>Dropshipping?</Typography>
           <Typography sx={headingStyle}>

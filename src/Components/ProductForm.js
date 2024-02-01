@@ -37,7 +37,7 @@ const ProductForm = () => {
 
   return (
     <Box sx={formStyle}>
-      <Container  maxWidth="lg">
+      <Container sx={{ maxWidth: "1478px" }}>
         <Box sx={{ textAlign: "center" }}>
           <Typography sx={titleStyle}>Product Form</Typography>
           <Typography sx={{ marginBottom: "128px" }} className="form_text">
@@ -47,7 +47,7 @@ const ProductForm = () => {
         </Box>
         <form>
           <Grid
-            sx={{ paddingBottom: { xs: "60px", lg: "225px" } }}
+            sx={{ paddingBottom: { xs: "30px", lg: "100px" } }}
             container
             spacing={12}
             alignItems="center"
@@ -120,46 +120,50 @@ const ProductForm = () => {
                     </Typography>
                     <Image src={arrow} alt="icon" />
                   </Box>
-                  {dropdownShow && (
-                    <Box
-                      sx={{
-                        // position: "absolute",
-                        borderRadius: "8px",
-                        border: "1px solid  #E5E7EB",
-                        background: "#FFFFF6",
-                        boxShadow:
-                          "0px 4px 3px 0px rgba(0, 0, 0, 0.10), 0px 10px 8px 0px rgba(0, 0, 0, 0.04)",
-                        padding: "8px",
-                        width: "100%",
-                        height: "100%",
-                        minHeight: "100px",
-                      }}
-                    >
-                      {options.map((data, index) => (
-                        <Typography
-                          onClick={() => setSelectOption(data)}
-                          sx={{
-                            color: "#6B7A8F",
-                            fontSize: "20px",
-                            fontStyle: "normal",
-                            fontWeight: "500",
-                            lineHeight: "20px",
-                            letterSpacing: "0.1px",
-                            borderRadius: "6px",
-                            transition: "background 0.3s ease,color 0.3s ease",
-                            "&:hover": {
-                              background: "rgba(247, 136, 47, 0.60)",
-                              color: "rgba(255, 255, 246, 0.70)",
-                            },
-                            padding: "8px 12px",
-                          }}
-                          key={index}
-                        >
-                          {data}
-                        </Typography>
-                      ))}
-                    </Box>
-                  )}
+                  <Box sx={{ height: "110px", padding: "10px 0" }}>
+                    {dropdownShow && (
+                      <Box
+                        sx={{
+                          // position: "absolute",
+                          borderRadius: "8px",
+                          border: "1px solid  #E5E7EB",
+                          background: "#FFFFF6",
+                          boxShadow:
+                            "0px 4px 3px 0px rgba(0, 0, 0, 0.10), 0px 10px 8px 0px rgba(0, 0, 0, 0.04)",
+                          padding: "8px",
+                          width: "100%",
+                          height: "100%",
+                          minHeight: "100px",
+                        }}
+                      >
+                        {options.map((data, index) => (
+                          <Typography
+                            onClick={() => setSelectOption(data)}
+                            sx={{
+                              color: "#6B7A8F",
+                              fontSize: "20px",
+                              fontStyle: "normal",
+                              fontWeight: "500",
+                              lineHeight: "20px",
+                              letterSpacing: "0.1px",
+                              borderRadius: "6px",
+                              cursor: "pointer",
+                              transition:
+                                "background 0.3s ease,color 0.3s ease",
+                              "&:hover": {
+                                background: "rgba(247, 136, 47, 0.60)",
+                                color: "rgba(255, 255, 246, 0.70)",
+                              },
+                              padding: "8px 12px",
+                            }}
+                            key={index}
+                          >
+                            {data}
+                          </Typography>
+                        ))}
+                      </Box>
+                    )}
+                  </Box>
                 </Box>
               )}
             </Grid>

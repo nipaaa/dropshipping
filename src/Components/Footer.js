@@ -27,7 +27,7 @@ const Footer = () => {
   };
   return (
     <Box style={footerStyle}>
-      <Container  maxWidth="lg">
+      <Container  sx={{ maxWidth: "1478px" }}>
         <Box sx={{ textAlign: "center" }}>
           <Typography style={titleStyle}>FormMatch Sourcing</Typography>
         </Box>

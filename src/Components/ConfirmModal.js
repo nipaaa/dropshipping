@@ -56,13 +56,12 @@ const ConfirmModal = ({ modalOpen, setModalOpen }) => {
           We will work on your request and email <br /> you once it is ready.
         </Typography>
         <Typography
-          onClose={() => setModalOpen(false)}
+          onClick={() => setModalOpen(false)}
           sx={{
             color: "#6B7A8F",
-
             textShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
             fontSize: { xs: "20px", lg: "35px" },
-
+            cursor: "pointer",
             fontStyle: "normal",
             fontWeight: 300,
             lineHeight: "40px",
