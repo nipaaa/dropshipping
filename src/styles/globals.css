@@ -23,7 +23,6 @@ textarea:focus-visible {
 }
 
 textarea {
-    /* min-height: 284px; */
     margin-bottom: 145px;
 }
 
@@ -59,4 +58,33 @@ textarea::placeholder {
 .css-ga3afp-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before,
 .css-ga3afp-MuiInputBase-root-MuiInput-root::before {
     border-bottom: 0;
+}
+
+.css-121gg11-MuiGrid-root,
+.css-isu9w9-MuiGrid-root {
+    margin-top: unset;
+    width: unset;
+    margin-left: unset;
+}
+
+.css-isu9w9-MuiGrid-root>.MuiGrid-item {
+    padding-left: unset;
+}
+
+.css-isu9w9-MuiGrid-root>.MuiGrid-item {
+    padding-top: unset;
+}
+
+@media screen and (max-width:991px) {
+    .form_text {
+        font-size: 25px;
+    }
+
+    textarea {
+        margin-bottom: 25px;
+    }
+
+    br {
+        display: none;
+    }
 }
