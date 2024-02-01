@@ -16,6 +16,7 @@ import ConfirmModal from "./ConfirmModal";
 
 const ProductForm = () => {
   const fileRef = useRef();
+  const [selectedFile, setSelectedFile] = useState(null);
   const [dropdownShow, setDropdownShow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectOption, setSelectOption] = useState("Website Source");
@@ -34,7 +35,11 @@ const ProductForm = () => {
     letterSpacing: "-1.4px",
     marginBottom: "13px",
   };
-
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedFile(file);
+  };
+  console.log(selectedFile);
   return (
     <Box sx={formStyle}>
       <Container sx={{ maxWidth: "1478px" }}>
@@ -173,14 +178,14 @@ const ProductForm = () => {
                 would like to <br /> source:
               </Typography>
               <Box sx={{ display: "none" }}>
-                <input type="file" ref={fileRef} />
+                <input type="file" ref={fileRef} onChange={handleFileChange} />
               </Box>
               <Box
                 onClick={() => fileRef.current.click()}
                 sx={{
                   maxWidth: "335px",
                   margin: "auto",
-                  border: "1px dashed #E5E7EB",
+                  border: "2px dashed #E5E7EB",
                   borderRadius: "8px",
                   background: "white",
                   padding: "50px",
@@ -189,54 +194,71 @@ const ProductForm = () => {
               >
                 <Image
                   sx={{ marginBottom: "20px" }}
-                  src={pictures}
+                  src={
+                    selectedFile ? URL.createObjectURL(selectedFile) : pictures
+                  }
+                  width={70}
+                  height={45}
                   alt="icon"
                 />
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "5px",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      color: "#1F2937",
-                      fontSize: "16px",
-                      fontWeight: "500",
-                      lineHeight: "24px",
-                      letterSpacing: "0.08px",
-                    }}
-                  >
-                    Drop your files here or
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: "#6B7A8F",
-                      fontSize: "16px",
-                      fontStyle: "normal",
-                      fontWeight: "600",
-                      lineHeight: "24px",
-                      letterSpacing: "0.08px,",
-                      textDecoration: "underline",
-                    }}
-                  >
-                    browse
-                  </Typography>
-                </Box>
+                {/* <img
+                  src={
+                    selectedFile
+                      ? URL.createObjectURL(selectedFile)
+                      : pictures.src
+                  }
+                /> */}
+                {selectedFile ? (
+                  <Typography>{selectedFile.name}</Typography>
+                ) : (
+                  <>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "5px",
+                      }}
+                    >
+                      <Typography
+                        sx={{
+                          color: "#1F2937",
+                          fontSize: "16px",
+                          fontWeight: "500",
+                          lineHeight: "24px",
+                          letterSpacing: "0.08px",
+                        }}
+                      >
+                        Drop your files here or
+                      </Typography>
+                      <Typography
+                        sx={{
+                          color: "#6B7A8F",
+                          fontSize: "16px",
+                          fontStyle: "normal",
+                          fontWeight: "600",
+                          lineHeight: "24px",
+                          letterSpacing: "0.08px,",
+                          textDecoration: "underline",
+                        }}
+                      >
+                        browse
+                      </Typography>
+                    </Box>
 
-                <Typography
-                  sx={{
-                    fontSize: "14px",
-                    color: "#9CA3AF",
-                    fontWeight: "500",
-                    lineHeight: "20px",
-                    letterSpacing: "0.07px",
-                  }}
-                >
-                  Maximum size: 50MB
-                </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: "14px",
+                        color: "#9CA3AF",
+                        fontWeight: "500",
+                        lineHeight: "20px",
+                        letterSpacing: "0.07px",
+                      }}
+                    >
+                      Maximum size: 50MB
+                    </Typography>
+                  </>
+                )}
               </Box>
             </Grid>
           </Grid>
