@@ -58,6 +58,7 @@ const ProductForm = () => {
               </Typography>
 
               <TextareaAutosize
+                sx={{ padding: "17px 25px !important" }}
                 aria-label="textarea"
                 placeholder="Ex .. How many products, etc."
                 minRows={3}
@@ -65,13 +66,15 @@ const ProductForm = () => {
                 className="input"
               />
               <Input
-                sx={{ marginBottom: "25px" }}
+                className="input"
+                sx={{ marginBottom: "25px", padding: "17px 25px" }}
                 type="text"
                 name="name"
                 placeholder="Full Name"
               />
               <Input
-                sx={{ marginBottom: "25px" }}
+                className="input"
+                sx={{ marginBottom: "25px", padding: "17px 25px" }}
                 name="email"
                 placeholder="Email "
               />
@@ -79,11 +82,17 @@ const ProductForm = () => {
               {selectOption === "Other" ? (
                 <Box>
                   <Input
-                    sx={{ marginBottom: "18px" }}
+                    className="input"
+                    sx={{ marginBottom: "18px", padding: "17px 25px" }}
                     name="other"
                     placeholder="Other "
                   />
-                  <Input name="otherText" placeholder="Type here.. " />
+                  <Input
+                    sx={{ padding: "17px 25px" }}
+                    className="input"
+                    name="otherText"
+                    placeholder="Type here.. "
+                  />
                 </Box>
               ) : (
                 <Box sx={{ position: "relative" }}>
@@ -100,7 +109,7 @@ const ProductForm = () => {
                     <Typography
                       sx={{
                         color: "rgba(255, 255, 246, 0.50)",
-
+                        padding: "17px 25px",
                         fontSize: "25px",
                         fontStyle: "normal",
                         fontWeight: "500",
