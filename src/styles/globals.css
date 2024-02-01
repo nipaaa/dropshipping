@@ -83,4 +83,8 @@ textarea::placeholder {
     textarea {
         margin-bottom: 25px;
     }
+
+    br {
+        display: none;
+    }
 }
