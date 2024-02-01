@@ -37,7 +37,7 @@ const ProductForm = () => {
 
   return (
     <Box sx={formStyle}>
-      <Container>
+      <Container  maxWidth="lg">
         <Box sx={{ textAlign: "center" }}>
           <Typography sx={titleStyle}>Product Form</Typography>
           <Typography sx={{ marginBottom: "128px" }} className="form_text">
