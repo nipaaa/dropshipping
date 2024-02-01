@@ -60,7 +60,7 @@ const ProductForm = () => {
               <TextareaAutosize
                 aria-label="textarea"
                 placeholder="Ex .. How many products, etc."
-                minRows={3}
+                minRows={9}
                 name="product"
                 className="input"
               />
