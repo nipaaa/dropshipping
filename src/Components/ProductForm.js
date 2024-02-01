@@ -58,7 +58,6 @@ const ProductForm = () => {
               </Typography>
 
               <TextareaAutosize
-                sx={{ padding: "17px 25px !important" }}
                 aria-label="textarea"
                 placeholder="Ex .. How many products, etc."
                 minRows={3}
