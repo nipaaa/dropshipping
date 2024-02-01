@@ -7,13 +7,16 @@ import {
   TextareaAutosize,
   Typography,
 } from "@mui/material";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import pictures from "../assets/pictures.png";
 import arrow from "../assets/arrow.png";
 import Image from "next/image";
+import ConfirmModal from "./ConfirmModal";
 
 const ProductForm = () => {
   const fileRef = useRef();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectOption, setSelectOption] = useState("Website Source");
   const options = ["WooCommerce", "Shopify", "Other"];
   const formStyle = {
     padding: "83px 0 58px",
@@ -72,69 +75,87 @@ const ProductForm = () => {
                 name="email"
                 placeholder="Email "
               />
-              <Box sx={{ position: "relative" }}>
-                <Box
-                  className="input"
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "10px",
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      color: "rgba(255, 255, 246, 0.50)",
 
-                      fontSize: "25px",
-                      fontStyle: "normal",
-                      fontWeight: "500",
-                      lineHeight: "20px",
+              {selectOption === "Other" ? (
+                <Box>
+                  <Input
+                    sx={{ marginBottom: "18px" }}
+                    className="input"
+                    name="other"
+                    placeholder="Other "
+                  />
+                  <Input
+                    className="input"
+                    name="otherText"
+                    placeholder="Type here.. "
+                  />
+                </Box>
+              ) : (
+                <Box sx={{ position: "relative" }}>
+                  <Box
+                    className="input"
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "10px",
                     }}
                   >
-                    Website Source
-                  </Typography>
-                  <Image src={arrow} alt="icon" />
-                </Box>
-
-                <Box
-                  sx={{
-                    borderRadius: "8px",
-                    border: "1px solid  #E5E7EB",
-                    background: "#FFFFF6",
-                    boxShadow:
-                      "0px 4px 3px 0px rgba(0, 0, 0, 0.10), 0px 10px 8px 0px rgba(0, 0, 0, 0.04)",
-                    padding: "8px",
-                    width: "100%",
-                    // position: "absolute",
-                    bottom: "-70px",
-                    zIndex: "99999 ",
-                  }}
-                >
-                  {options.map((data, index) => (
                     <Typography
                       sx={{
-                        color: "#6B7A8F",
-                        fontSize: "20px",
+                        color: "rgba(255, 255, 246, 0.50)",
+
+                        fontSize: "25px",
                         fontStyle: "normal",
                         fontWeight: "500",
                         lineHeight: "20px",
-                        letterSpacing: "0.1px",
-                        borderRadius: "6px",
-                        transition: "background 0.3s ease,color 0.3s ease",
-                        "&:hover": {
-                          background: "rgba(247, 136, 47, 0.60)",
-                          color: "rgba(255, 255, 246, 0.70)",
-                        },
-                        padding: "8px 12px",
                       }}
-                      key={index}
                     >
-                      {data}
+                      {selectOption}
                     </Typography>
-                  ))}
+                    <Image src={arrow} alt="icon" />
+                  </Box>
+
+                  <Box
+                    sx={{
+                      borderRadius: "8px",
+                      border: "1px solid  #E5E7EB",
+                      background: "#FFFFF6",
+                      boxShadow:
+                        "0px 4px 3px 0px rgba(0, 0, 0, 0.10), 0px 10px 8px 0px rgba(0, 0, 0, 0.04)",
+                      padding: "8px",
+                      width: "100%",
+                      // position: "absolute",
+                      bottom: "-70px",
+                      zIndex: "99999 ",
+                    }}
+                  >
+                    {options.map((data, index) => (
+                      <Typography
+                        onClick={() => setSelectOption(data)}
+                        sx={{
+                          color: "#6B7A8F",
+                          fontSize: "20px",
+                          fontStyle: "normal",
+                          fontWeight: "500",
+                          lineHeight: "20px",
+                          letterSpacing: "0.1px",
+                          borderRadius: "6px",
+                          transition: "background 0.3s ease,color 0.3s ease",
+                          "&:hover": {
+                            background: "rgba(247, 136, 47, 0.60)",
+                            color: "rgba(255, 255, 246, 0.70)",
+                          },
+                          padding: "8px 12px",
+                        }}
+                        key={index}
+                      >
+                        {data}
+                      </Typography>
+                    ))}
+                  </Box>
                 </Box>
-              </Box>
+              )}
             </Grid>
             <Grid md={6}>
               <Typography sx={{ marginBottom: "25px" }} className="form_text">
@@ -209,6 +230,7 @@ const ProductForm = () => {
           </Grid>
           <Box sx={{ textAlign: "center" }}>
             <Button
+              onClick={() => setModalOpen(true)}
               sx={{
                 borderRadius: "6px",
                 background: "#6B7A8F",
@@ -228,6 +250,7 @@ const ProductForm = () => {
           </Box>
         </form>
       </Container>
+      <ConfirmModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </Box>
   );
 };
