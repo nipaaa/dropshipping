@@ -22,11 +22,7 @@ textarea:focus-visible {
     outline: none;
 }
 
-textarea {
-    border-radius: 5px;
-    margin-bottom: 145px;
-    padding: 17px 5px;
-}
+
 
 input {
     margin-bottom: 47px;
@@ -44,7 +40,12 @@ textarea {
     line-height: 20px !important;
     width: 100%;
 }
-
+textarea {
+    border-radius: 5px;
+    margin-bottom: 145px;
+    padding: 17px 5px;
+    width: 96.6% !important;
+}
 
 input::placeholder,
 textarea::placeholder {

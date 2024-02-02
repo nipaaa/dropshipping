@@ -123,9 +123,8 @@ const ProductForm = () => {
                       boxShadow:
                         "0px 4px 3px 0px rgba(0, 0, 0, 0.10), 0px 10px 8px 0px rgba(0, 0, 0, 0.04)",
                       padding: "8px",
-                      width: "100%",
+                      width: "95%",
                       height: "auto",
-                      // minHeight: "100px",
                     }}
                   >
                     {options.map((data, index) => (
