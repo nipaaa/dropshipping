@@ -51,7 +51,7 @@ const ProductForm = () => {
           </Typography>
         </Box>
         <form>
-          <Grid container spacing={12} alignItems="center">
+          <Grid container spacing={1} alignItems="center">
             <Grid
               item
               md={6}
