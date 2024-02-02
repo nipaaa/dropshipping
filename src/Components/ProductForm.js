@@ -57,7 +57,7 @@ const ProductForm = () => {
               md={6}
               sx={{
                 overflow: "hidden",
-                paddingBottom: { xs: "80px", lg: "210px" },
+                paddingBottom: { xs: "150px", lg: "210px" },
               }}
             >
               <Typography sx={{ marginBottom: "36px" }} className="form_text">
