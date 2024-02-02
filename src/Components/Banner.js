@@ -29,10 +29,10 @@ const Banner = () => {
   const headingStyle = {
     color: " var(--Main2, #FFFFD7)",
     textShadow: "0px 2px 2px rgba(0, 0, 0, 0.25)",
-    fontSize: { xs: "30px", md: "40px", lg: "60px" },
+    fontSize: { xs: "24px", md: "40px", lg: "60px" },
     fontStyle: "normal",
-    fontWeight: "800",
-    lineHeight: "70px",
+    fontWeight: { xs: "600", lg: "800" },
+    lineHeight: { xs: "45px", lg: "70px" },
     letterSpacing: "-1.2px",
     marginBottom: "28px",
   };

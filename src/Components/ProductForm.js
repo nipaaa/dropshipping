@@ -93,7 +93,7 @@ const ProductForm = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "10px",
-                    padding: "24px 25px",
+                    padding: "24px 0px",
                   }}
                 >
                   <Typography
