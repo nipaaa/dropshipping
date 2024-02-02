@@ -55,34 +55,36 @@ const ProductForm = () => {
             <Grid
               item
               md={6}
-              sx={{ overflow: "hidden", paddingBottom: "210px" }}
+              sx={{
+                overflow: "hidden",
+                paddingBottom: { xs: "80px", lg: "210px" },
+              }}
             >
+              <Typography sx={{ marginBottom: "36px" }} className="form_text">
+                Information on your order:
+              </Typography>
+
+              <TextareaAutosize
+                aria-label="textarea"
+                placeholder="Ex .. How many products, etc."
+                minRows={9}
+                name="product"
+                className="input"
+              />
+              <Input
+                className="input"
+                sx={{ marginBottom: "25px", padding: "17px 25px" }}
+                type="text"
+                name="name"
+                placeholder="Full Name"
+              />
+              <Input
+                className="input"
+                sx={{ marginBottom: "25px", padding: "17px 25px" }}
+                name="email"
+                placeholder="Email "
+              />
               <Box sx={{ position: "relative" }}>
-                <Typography sx={{ marginBottom: "36px" }} className="form_text">
-                  Information on your order:
-                </Typography>
-
-                <TextareaAutosize
-                  aria-label="textarea"
-                  placeholder="Ex .. How many products, etc."
-                  minRows={9}
-                  name="product"
-                  className="input"
-                />
-                <Input
-                  className="input"
-                  sx={{ marginBottom: "25px", padding: "17px 25px" }}
-                  type="text"
-                  name="name"
-                  placeholder="Full Name"
-                />
-                <Input
-                  className="input"
-                  sx={{ marginBottom: "25px", padding: "17px 25px" }}
-                  name="email"
-                  placeholder="Email "
-                />
-
                 <Box
                   onClick={() => setDropdownShow(!dropdownShow)}
                   className="input"
@@ -155,20 +157,23 @@ const ProductForm = () => {
                     ))}
                   </Box>
                 )}
-
-                {selectOption === "Other" && (
-                  <Box>
-                    <Input
-                      sx={{ padding: "17px 25px", marginTop: "18px" }}
-                      className="input"
-                      name="otherText"
-                      placeholder="Type here.. "
-                    />
-                  </Box>
-                )}
               </Box>
+              {selectOption === "Other" && (
+                <Box>
+                  <Input
+                    sx={{ padding: "17px 25px", marginTop: "18px" }}
+                    className="input"
+                    name="otherText"
+                    placeholder="Type here.. "
+                  />
+                </Box>
+              )}
             </Grid>
-            <Grid item md={6} sx={{ paddingBottom: "210px" }}>
+            <Grid
+              item
+              md={6}
+              sx={{ paddingBottom: { xs: "80px", lg: "210px" } }}
+            >
               <Typography sx={{ marginBottom: "25px" }} className="form_text">
                 Upload a picture or provide a link <br /> to the product(s) you
                 would like to <br /> source:
