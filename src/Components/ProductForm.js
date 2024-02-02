@@ -51,128 +51,124 @@ const ProductForm = () => {
           </Typography>
         </Box>
         <form>
-          <Grid
-            sx={{ paddingBottom: { xs: "30px", lg: "100px" } }}
-            container
-            spacing={12}
-            alignItems="center"
-          >
-            <Grid item md={6} sx={{ overflow: "hidden" }}>
-              <Typography sx={{ marginBottom: "36px" }} className="form_text">
-                Information on your order:
-              </Typography>
+          <Grid container spacing={12} alignItems="center">
+            <Grid
+              item
+              md={6}
+              sx={{ overflow: "hidden", paddingBottom: "210px" }}
+            >
+              <Box sx={{ position: "relative" }}>
+                <Typography sx={{ marginBottom: "36px" }} className="form_text">
+                  Information on your order:
+                </Typography>
 
-              <TextareaAutosize
-                aria-label="textarea"
-                placeholder="Ex .. How many products, etc."
-                minRows={9}
-                name="product"
-                className="input"
-              />
-              <Input
-                className="input"
-                sx={{ marginBottom: "25px", padding: "17px 25px" }}
-                type="text"
-                name="name"
-                placeholder="Full Name"
-              />
-              <Input
-                className="input"
-                sx={{ marginBottom: "25px", padding: "17px 25px" }}
-                name="email"
-                placeholder="Email "
-              />
+                <TextareaAutosize
+                  aria-label="textarea"
+                  placeholder="Ex .. How many products, etc."
+                  minRows={9}
+                  name="product"
+                  className="input"
+                />
+                <Input
+                  className="input"
+                  sx={{ marginBottom: "25px", padding: "17px 25px" }}
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                />
+                <Input
+                  className="input"
+                  sx={{ marginBottom: "25px", padding: "17px 25px" }}
+                  name="email"
+                  placeholder="Email "
+                />
 
-              {selectOption === "Other" ? (
-                <Box>
-                  <Input
-                    className="input"
-                    sx={{ marginBottom: "18px", padding: "17px 25px" }}
-                    name="other"
-                    placeholder="Other "
-                  />
-                  <Input
-                    sx={{ padding: "17px 25px" }}
-                    className="input"
-                    name="otherText"
-                    placeholder="Type here.. "
-                  />
-                </Box>
-              ) : (
-                <Box sx={{ position: "relative" }}>
-                  <Box
-                    onClick={() => setDropdownShow(!dropdownShow)}
-                    className="input"
+                <Box
+                  onClick={() => setDropdownShow(!dropdownShow)}
+                  className="input"
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "10px",
+                    padding: "24px 25px",
+                  }}
+                >
+                  <Typography
                     sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: "10px",
-                      padding: "24px 25px",
+                      color: "rgba(255, 255, 246, 0.50)",
+
+                      fontSize: "25px",
+                      fontStyle: "normal",
+                      fontWeight: "500",
+                      lineHeight: "20px",
                     }}
                   >
-                    <Typography
-                      sx={{
-                        color: "rgba(255, 255, 246, 0.50)",
-
-                        fontSize: "25px",
-                        fontStyle: "normal",
-                        fontWeight: "500",
-                        lineHeight: "20px",
-                      }}
-                    >
-                      {selectOption}
-                    </Typography>
-                    <Image src={arrow} alt="icon" />
-                  </Box>
-                  <Box sx={{ height: "110px", padding: "10px 0" }}>
-                    {dropdownShow && (
-                      <Box
-                        sx={{
-                          // position: "absolute",
-                          borderRadius: "8px",
-                          border: "1px solid  #E5E7EB",
-                          background: "#FFFFF6",
-                          boxShadow:
-                            "0px 4px 3px 0px rgba(0, 0, 0, 0.10), 0px 10px 8px 0px rgba(0, 0, 0, 0.04)",
-                          padding: "8px",
-                          width: "100%",
-                          height: "100%",
-                          minHeight: "100px",
-                        }}
-                      >
-                        {options.map((data, index) => (
-                          <Typography
-                            onClick={() => setSelectOption(data)}
-                            sx={{
-                              color: "#6B7A8F",
-                              fontSize: "20px",
-                              fontStyle: "normal",
-                              fontWeight: "500",
-                              lineHeight: "20px",
-                              letterSpacing: "0.1px",
-                              borderRadius: "6px",
-                              cursor: "pointer",
-                              transition:
-                                "background 0.3s ease,color 0.3s ease",
-                              "&:hover": {
-                                background: "rgba(247, 136, 47, 0.60)",
-                                color: "rgba(255, 255, 246, 0.70)",
-                              },
-                              padding: "8px 12px",
-                            }}
-                            key={index}
-                          >
-                            {data}
-                          </Typography>
-                        ))}
-                      </Box>
-                    )}
-                  </Box>
+                    {selectOption}
+                  </Typography>
+                  <Image src={arrow} alt="icon" />
                 </Box>
-              )}
+
+                {dropdownShow && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      bottom: "-140px",
+                      zIndex: "9999",
+                      borderRadius: "8px",
+                      border: "1px solid  #E5E7EB",
+                      background: "#FFFFF6",
+                      boxShadow:
+                        "0px 4px 3px 0px rgba(0, 0, 0, 0.10), 0px 10px 8px 0px rgba(0, 0, 0, 0.04)",
+                      padding: "8px",
+                      width: "100%",
+                      height: "auto",
+                      // minHeight: "100px",
+                    }}
+                  >
+                    {options.map((data, index) => (
+                      <Typography
+                        onClick={() => {
+                          setSelectOption(data);
+                          setDropdownShow(false);
+                        }}
+                        sx={{
+                          color: "#6B7A8F",
+                          fontSize: "20px",
+                          fontStyle: "normal",
+                          fontWeight: "500",
+                          lineHeight: "20px",
+                          letterSpacing: "0.1px",
+                          borderRadius: "6px",
+                          cursor: "pointer",
+                          transition: "background 0.3s ease,color 0.3s ease",
+                          "&:hover": {
+                            background: "rgba(247, 136, 47, 0.60)",
+                            color: "rgba(255, 255, 246, 0.70)",
+                          },
+                          padding: "8px 12px",
+                        }}
+                        key={index}
+                      >
+                        {data}
+                      </Typography>
+                    ))}
+                  </Box>
+                )}
+
+                {selectOption === "Other" && (
+                  <Box>
+                    <Input
+                      sx={{ padding: "17px 25px", marginTop: "18px" }}
+                      className="input"
+                      name="otherText"
+                      placeholder="Type here.. "
+                    />
+                  </Box>
+                )}
+              </Box>
             </Grid>
-            <Grid item md={6}>
+            <Grid item md={6} sx={{ paddingBottom: "210px" }}>
               <Typography sx={{ marginBottom: "25px" }} className="form_text">
                 Upload a picture or provide a link <br /> to the product(s) you
                 would like to <br /> source:
@@ -201,13 +197,7 @@ const ProductForm = () => {
                   height={45}
                   alt="icon"
                 />
-                {/* <img
-                  src={
-                    selectedFile
-                      ? URL.createObjectURL(selectedFile)
-                      : pictures.src
-                  }
-                /> */}
+
                 {selectedFile ? (
                   <Typography>{selectedFile.name}</Typography>
                 ) : (
