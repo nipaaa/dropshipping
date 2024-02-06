@@ -3,7 +3,6 @@ import {
   Button,
   Container,
   Grid,
-  Hidden,
   Input,
   TextareaAutosize,
   Typography,
@@ -16,10 +15,12 @@ import ConfirmModal from "./ConfirmModal";
 
 const ProductForm = () => {
   const fileRef = useRef();
+  const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [dropdownShow, setDropdownShow] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectOption, setSelectOption] = useState("Website Source");
+  const [customType, setCustomType] = useState("");
   const options = ["WooCommerce", "Shopify", "Other"];
   const formStyle = {
     padding: "83px 0 58px",
@@ -35,11 +36,49 @@ const ProductForm = () => {
     letterSpacing: "-1.4px",
     marginBottom: "13px",
   };
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
   };
-  console.log(selectedFile);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    const formData = new FormData();
+
+    formData.append("name", e.target.name.value);
+    formData.append("email", e.target.email.value);
+    formData.append("Description", e.target.Description.value);
+    formData.append(
+      "type",
+      selectOption === "Other" ? customType : selectOption
+    );
+    formData.append("image", selectedFile);
+
+    try {
+      const response = await fetch("http://localhost:8000/api/email", {
+        method: "POST",
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        // },
+        body: formData,
+      });
+
+      const responseData = await response.json();
+
+      console.log("Response:", responseData);
+
+      if (responseData?.status === 200) {
+        window.location.href = "https://buy.stripe.com/cN2cQA46Cg70bOo146";
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Box sx={formStyle}>
       <Container sx={{ maxWidth: "1478px" }}>
@@ -50,7 +89,7 @@ const ProductForm = () => {
             request and email your results.
           </Typography>
         </Box>
-        <form>
+        <form onSubmit={handleSubmit}>
           <Grid container spacing={1} alignItems="center">
             <Grid
               item
@@ -68,8 +107,9 @@ const ProductForm = () => {
                 aria-label="textarea"
                 placeholder="Ex .. How many products, etc."
                 minRows={9}
-                name="product"
+                name="Description"
                 className="input"
+                required
               />
               <Input
                 className="input"
@@ -77,12 +117,14 @@ const ProductForm = () => {
                 type="text"
                 name="name"
                 placeholder="Full Name"
+                required
               />
               <Input
                 className="input"
                 sx={{ marginBottom: "25px", padding: "17px 25px" }}
                 name="email"
                 placeholder="Email "
+                required
               />
               <Box sx={{ position: "relative" }}>
                 <Box
@@ -162,8 +204,11 @@ const ProductForm = () => {
                   <Input
                     sx={{ padding: "17px 25px", marginTop: "18px" }}
                     className="input"
-                    name="otherText"
+                    name="customType"
                     placeholder="Type here.. "
+                    value={customType}
+                    onChange={(e) => setCustomType(e.target.value)}
+                    required
                   />
                 </Box>
               )}
@@ -178,7 +223,12 @@ const ProductForm = () => {
                 would like to <br /> source:
               </Typography>
               <Box sx={{ display: "none" }}>
-                <input type="file" ref={fileRef} onChange={handleFileChange} />
+                <input
+                  type="file"
+                  ref={fileRef}
+                  onChange={handleFileChange}
+                  required
+                />
               </Box>
               <Box
                 onClick={() => fileRef.current.click()}
@@ -258,7 +308,9 @@ const ProductForm = () => {
           </Grid>
           <Box sx={{ textAlign: "center" }}>
             <Button
-              onClick={() => setModalOpen(true)}
+              disabled={loading}
+              // onClick={() => setModalOpen(true)}
+              type="submit"
               sx={{
                 borderRadius: "6px",
                 background: "#6B7A8F",
@@ -273,7 +325,7 @@ const ProductForm = () => {
               }}
               variant="contained"
             >
-              Submit
+              {loading ? "Submiting..." : "Submit"}
             </Button>
           </Box>
         </form>
